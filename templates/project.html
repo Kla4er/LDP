@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="center-content">
+    {% if projects %}
+    <h2>Project List</h2>
+    <ul>
+        {% for project in projects %}
+            <li>{{ project.name }} - {{ project.description }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>You do not have any projects</p>
+    {% endif %}
+</div>
+{% endblock %}

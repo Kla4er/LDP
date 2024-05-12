@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelance CRM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1>Freelance CRM</h1>
+    </div>
+
+    {% if 'user_id' in session %}
+    <div class="navbar">
+        <div class="navbar-link"><a href="{{ url_for('profile') }}">Edit Profile</a></div>
+        <div class="navbar-link"><a href="{{ url_for('projects') }}">Project List</a></div>
+        <div class="navbar-link"><a href="{{ url_for('new_project') }}">Create New Project</a></div>
+        <div class="navbar-link"><a href="{{ url_for('logout') }}">Logout</a></div>
+    </div>
+    {% endif %}
+
+    <div class="center-form">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <div class="footer">
+        <p>Terms & Conditions</p>
+        <p>Support</p>
+         <p>© {{ year }} 3NAR - All rights reserved.</p>
+    </div>
+
+</body>
+</html>
